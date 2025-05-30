@@ -5,7 +5,7 @@ import {
   getFirestore, collection, addDoc, getDocs
 } from 'firebase/firestore';
 import {
-  getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut
+  getAuth, GoogleAuthProvider, onAuthStateChanged, signOut
 } from 'firebase/auth';
 import 'leaflet/dist/leaflet.css';
 import './App.css';
@@ -14,7 +14,7 @@ import 'leaflet.heat';
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-// import Login from './Login';
+import Login from './Login';
 
 // Fix leaflet default icon issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -38,7 +38,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
+// const provider = new GoogleAuthProvider();
 
 
 function HeatmapLayer({ data }) {
@@ -69,10 +69,10 @@ function App() {
   const [lastTestResult, setLastTestResult] = useState(null);
   const [heatmapPoints, setHeatmapPoints] = useState([]);
 
-  const login = async () => {
-    const result = await signInWithPopup(auth, provider);
-    setUser(result.user);
-  };
+  // const login = async () => {
+  //   const result = await signInWithPopup(auth, provider);
+  //   setUser(result.user);
+  // };
 
   useEffect(() => {
     onAuthStateChanged(auth, (u) => {
@@ -176,7 +176,12 @@ function App() {
     <div className="p-4 font-sans">
       <h1 className="text-2xl font-bold mb-4">📡 NetSeva</h1>
       {!user ? (
-        <button onClick={login} className="bg-blue-600 text-white px-4 py-2 rounded">Login with Google</button>
+        // <button onClick={login} className="bg-blue-600 text-white px-4 py-2 rounded">Login with Google</button>
+      //   <div className="min-h-screen bg-white">
+      //   <Login />
+      //   <button onClick={login} className="bg-blue-600 text-white px-4 py-2 rounded mt-4">Login with Google</button>
+      // </div>
+        <Login />
       ) : (
         <>
           <div className="mb-4">
