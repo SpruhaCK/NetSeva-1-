@@ -1,5 +1,5 @@
 // src/Login.jsx
-import React from 'react';
+// import React from 'react';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
@@ -21,9 +21,9 @@ const Login = () => {
     >
       <div className="flex items-center bg-slate-50 p-4 pb-2 justify-between">
         <div className="text-[#0e141b] flex size-12 shrink-0 items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+          {/* <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
             <path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
-          </svg>
+          </svg> */}
         </div>
       </div>
 
@@ -37,45 +37,54 @@ const Login = () => {
             }}
           >
             <div className="flex flex-col gap-2 text-center">
-              <h1 className="text-white text-4xl font-black leading-tight tracking-tight">
-                Welcome back
+              <h1 className="text-white text-4xl font-black leading-tight tracking-tight" style={{fontSize: '3rem'}}>
+                Welcome!
               </h1>
-              <h2 className="text-white text-sm md:text-base font-normal">
-                Log in to your account.
-              </h2>
+
             </div>
           </div>
         </div>
 
-        <div className="max-w-md mx-auto space-y-3 px-4 py-3">
-          <input
-            type="email"
-            placeholder="Email"
-            className="form-input w-full rounded-xl bg-[#e7edf3] text-[#0e141b] placeholder-[#4e7397] h-14 p-4 text-base font-normal leading-normal focus:outline-none"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="form-input w-full rounded-xl bg-[#e7edf3] text-[#0e141b] placeholder-[#4e7397] h-14 p-4 text-base font-normal leading-normal focus:outline-none"
-          />
+        <div
+  style={{
+    marginTop: '40px',
+    marginBottom: '40px',
+    marginLeft: '400px',
+    marginRight: '400px',
+  }}
+>
+  <button
+    onClick={handleLogin}
+    style={{
+      width: '100%',
+      height: '64px',                  // equivalent to Tailwind's h-16
+      borderRadius: '1rem',            // rounded corners
+      backgroundColor: '#e7edf3',
+      color: '#0e141b',
+      fontSize: '1.125rem',            // ~18px, similar to text-lg
+      fontWeight: '800',               // bold text
+      letterSpacing: '0.05em',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '0.5rem',
+      transition: 'background-color 0.3s ease',
+      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+      padding: '0 1.5rem',
+      cursor: 'pointer',
+    }}
+    onMouseOver={(e) => {
+      e.currentTarget.style.backgroundColor = '#d6dee6';
+    }}
+    onMouseOut={(e) => {
+      e.currentTarget.style.backgroundColor = '#e7edf3';
+    }}
+  >
+    <span>Login with Google</span>
+  </button>
+</div>
 
-          <p className="text-[#4e7397] text-sm underline">Forgot password?</p>
 
-          <button className="w-full h-12 rounded-xl bg-[#1980e6] text-white font-bold tracking-wide">
-            Log in
-          </button>
-
-          <button
-            onClick={handleLogin}
-            className="w-full h-12 rounded-xl bg-[#e7edf3] text-[#0e141b] font-bold tracking-wide flex items-center justify-center gap-2 hover:bg-[#d6dee6] transition"
-          >
-            
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
-              <path d="M224,128a96,96,0,1,1-21.95-61.09,8,8,0,1,1-12.33,10.18A80,80,0,1,0,207.6,136H128a8,8,0,0,1,0-16h88A8,8,0,0,1,224,128Z"></path>
-            </svg>
-            <span>Login with Google</span>
-          </button>
-        </div>
       </div>
     </div>
   );
