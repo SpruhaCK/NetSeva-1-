@@ -150,7 +150,7 @@ function App() {
 
   return (
     <div className="p-4 font-sans min-h-screen">
-      <h1
+      {/* <h1
         style={{
         fontSize: '2rem',          
         fontWeight: '700',       
@@ -162,7 +162,7 @@ function App() {
         }}
       >
       📡 NetSeva
-      </h1>
+      </h1> */}
 
       {!user ? (
         <Login /> 
